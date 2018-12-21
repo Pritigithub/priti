@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 25, 2015 10:09:32 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.myapp.struts.Orders" table="ORDERS" schema="SHOPS">
+        <id name="ordid" type="int">
+            <column name="ORDID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="buyers" class="com.myapp.struts.Buyers" fetch="select">
+            <column name="USE" length="15" />
+        </many-to-one>
+        <property name="orderdt" type="string">
+            <column name="ORDERDT" length="11" />
+        </property>
+        <property name="ordtime" type="string">
+            <column name="ORDTIME" length="6" />
+        </property>
+        <property name="ordamnt" type="java.lang.Integer">
+            <column name="ORDAMNT" precision="8" scale="0" />
+        </property>
+        <set name="products" inverse="false" table="ORDPRODUCT">
+            <key>
+                <column name="ORDID" precision="8" scale="0" />
+            </key>
+            <many-to-many entity-name="com.myapp.struts.Product">
+                <column name="PRDNO" precision="8" scale="0" />
+            </many-to-many>
+        </set>
+        <set name="confirmations" inverse="true">
+            <key>
+                <column name="ORDID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.myapp.struts.Confirmation" />
+        </set>
+    </class>
+</hibernate-mapping>

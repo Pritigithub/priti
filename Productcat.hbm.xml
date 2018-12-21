@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 25, 2015 10:09:32 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.myapp.struts.Productcat" table="PRODUCTCAT" schema="SHOPS">
+        <id name="procatid" type="int">
+            <column name="PROCATID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="procatname" type="string">
+            <column name="PROCATNAME" length="10" />
+        </property>
+        <set name="products" inverse="true">
+            <key>
+                <column name="PCATID" precision="5" scale="0" />
+            </key>
+            <one-to-many class="com.myapp.struts.Product" />
+        </set>
+    </class>
+</hibernate-mapping>

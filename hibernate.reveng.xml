@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="SHOPS"/>
+  <table-filter match-name="PRODUCT"/>
+  <table-filter match-name="BUYERS"/>
+  <table-filter match-name="ORDERS"/>
+  <table-filter match-name="CONFIRMATION"/>
+  <table-filter match-name="PRODUCTCAT"/>
+  <table-filter match-name="PAYMENT"/>
+  <table-filter match-name="ORDPRODUCT"/>
+</hibernate-reverse-engineering>

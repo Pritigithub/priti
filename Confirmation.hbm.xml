@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 25, 2015 10:09:32 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.myapp.struts.Confirmation" table="CONFIRMATION" schema="SHOPS">
+        <composite-id name="id" class="com.myapp.struts.ConfirmationId">
+            <key-property name="prdno" type="int">
+                <column name="PRDNO" precision="8" scale="0" />
+            </key-property>
+            <key-property name="ordid" type="int">
+                <column name="ORDID" precision="8" scale="0" />
+            </key-property>
+            <key-property name="uname" type="string">
+                <column name="UNAME" length="15" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="orders" class="com.myapp.struts.Orders" update="false" insert="false" fetch="select">
+            <column name="ORDID" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="buyers" class="com.myapp.struts.Buyers" update="false" insert="false" fetch="select">
+            <column name="UNAME" length="15" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="com.myapp.struts.Product" update="false" insert="false" fetch="select">
+            <column name="PRDNO" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
